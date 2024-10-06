@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "ahs-analysis"
+version = "0.1.0"
+description = "Lightweight file analysis and extraction tool for HPE's Active Health System (.AHS) files."
+authors = ["Tarran Prior <Tarranprior@protonmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+[tool.poetry.group.dev.dependencies]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
