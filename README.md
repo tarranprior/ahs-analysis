@@ -7,8 +7,8 @@ A lightweight file analysis and extraction tool for HPE's Active Health System (
 This tool was made for educational purposes.
 
 ## Prerequisites
-* Python
-* [Poetry](https://python-poetry.org/docs) (or the [pip](https://pypi.org/project/pip/) package management tool)
+* Python and [Poetry](https://python-poetry.org/docs) (or the [pip](https://pypi.org/project/pip/) package management tool)
+* An Active Health System (AHS) file.
 
 ## Installation
 1. Clone the repository:
