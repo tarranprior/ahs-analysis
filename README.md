@@ -59,9 +59,9 @@ The contents of a typical `.AHS` file includes the following files after extract
 -rwxrwx--- 1 root   900471  0002013-2024-10-02.bb
 -rwxrwx--- 1 root   901465  0002015-2024-10-02.bb
 -rwxrwx--- 1 root   661088  0002016-2024-10-02.bb
--rwxrwx--- 1 root    28808  bcert.pkg
+-rwxrwx--- 1 root    28808  bcert.pkg.xml
 -rwxrwx--- 1 root     3224  clist.pkg
 -rwxrwx--- 1 root     8436  counters.pkg
 -rwxrwx--- 1 root      823  CUST_INFO.DAT
--rwxrwx--- 1 root    15360  file.pkg
+-rwxrwx--- 1 root    15360  file.pkg.txt
 ```
