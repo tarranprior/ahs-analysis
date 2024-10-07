@@ -61,6 +61,10 @@ class File:
         """
         if self.name.endswith(".zbb"):
             return f"{self.name[:-4]}.bb"
+        if self.name == 'bcert.pkg':
+            return f"{self.name}.xml"
+        if self.name == 'file.pkg':
+            return f"{self.name}.txt"
         return self.name
 
 
