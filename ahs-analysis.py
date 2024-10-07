@@ -4,6 +4,8 @@ import argparse
 import sys
 import zlib
 
+from typing import Optional
+
 class File:
 
     MAGIC_NUMBER = b"ABJR"
@@ -25,7 +27,7 @@ class File:
         self.content_range = content_range
 
 
-    def extract_content(self):
+    def extract_content(self) -> bytes:
         """
         Function which extracts the content from a file.
         """
@@ -34,7 +36,7 @@ class File:
         return self._extract_binary_data()
 
 
-    def _extract_binary_data(self):
+    def _extract_binary_data(self) -> bytes:
         """
         Function which extracts the binary data from a file.
         """
@@ -42,7 +44,7 @@ class File:
         return self.content[start : finish]
 
 
-    def _decompress_data(self):
+    def _decompress_data(self) -> Optional[bytes]:
         """
         Function which decompresses gzip data from a file.
         """
@@ -55,7 +57,7 @@ class File:
             return None
 
 
-    def validate_file_name(self):
+    def validate_file_name(self) -> str:
         """
         Function which validates file names.
         """
@@ -68,7 +70,7 @@ class File:
         return self.name
 
 
-def open_file(path):
+def open_file(path) -> bytes:
     """
     Function which opens a specified file and returns the contents.
     """
@@ -76,7 +78,7 @@ def open_file(path):
         return f.read()
 
 
-def parse_files(contents):
+def parse_files(contents) -> list[File]:
     """
     Function which reads through the `.ahs` archive and parses file objects.
     """
@@ -142,7 +144,7 @@ def parse_files(contents):
     return files
 
 
-def write_files(files):
+def write_files(files: list[File]) -> None:
     """
     Function which writes data to a file.
     """
