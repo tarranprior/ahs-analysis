@@ -1,6 +1,7 @@
 #! /usr/bin/env python3
 
 import argparse
+import os
 import sys
 import zlib
 
@@ -144,17 +145,18 @@ def parse_files(contents) -> list[File]:
     return files
 
 
-def write_files(files: list[File]) -> None:
+def write_file(file_object: File, destination: str) -> None:
     """
     Function which writes data to a file.
     """
 
-    for file_object in files:
-        content = file_object.extract_content()
-        if content:
-            output_filename = file_object.validate_file_name()
-            with open(output_filename, "wb") as output_file:
-                output_file.write(content)
+    content = file_object.extract_content()
+    if content:
+        output_filename = file_object.validate_file_name()
+        output_path = os.path.join(destination[:-4], output_filename)
+        os.makedirs(destination[:-4], exist_ok=True)
+        with open(output_path, "wb") as output_file:
+            output_file.write(content)
 
 
 if __name__ == "__main__":
@@ -185,7 +187,9 @@ if __name__ == "__main__":
         files = parse_files(content)
 
         if arguments.extract:
-            write_files(files)
+            destination = arguments.source
+            for f in files:
+                write_file(f, destination)
 
     else:
         sys.exit("Please specify a .ahs file.")
