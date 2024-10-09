@@ -33,7 +33,11 @@ pip install -r requirements.txt
 
 ## Usage
 ```bash
-ahs-analysis.py [-h] [--extract] source
+ahs-analysis.py [options] <source>
+
+options:
+  -h, --help  show this help message and exit
+  --extract   extract all files from a .ahs source file.
 ```
 
 The contents of a typical `.AHS` file includes the following files after extraction.
