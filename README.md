@@ -36,8 +36,9 @@ pip install -r requirements.txt
 ahs-analysis.py [options] <source>
 
 options:
-  -h, --help  show this help message and exit
-  --extract   extract all files from a .ahs source file.
+  -h, --help     show this help message and exit
+  --extract      extract all files from a .ahs source file.
+  -v, --verbose  enable verbose logging output.
 ```
 
 The contents of a typical `.AHS` file includes the following files after extraction.
