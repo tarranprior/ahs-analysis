@@ -5,6 +5,7 @@ import os
 import sys
 import zlib
 
+from loguru import logger
 from typing import Optional
 
 class File:
@@ -155,8 +156,22 @@ def write_file(file_object: File, destination: str) -> None:
         output_filename = file_object.validate_file_name()
         output_path = os.path.join(destination[:-4], output_filename)
         os.makedirs(destination[:-4], exist_ok=True)
-        with open(output_path, "wb") as output_file:
-            output_file.write(content)
+        try:
+            with open(output_path, "wb") as output_file:
+                output_file.write(content)
+        except Exception as e:
+            logger.error(f"Unable to write file: {e}")
+
+
+def logging(verbose: bool = None) -> None:
+    logger.remove()
+    level = "DEBUG" if verbose else "INFO"
+    logger.add(
+        sys.stderr,
+        level=level,
+        format="[<level>*</level>] <level>{time:YYYY-MM-DDTHH:mm:ss}</level> - <level>{level}</level> - <level>{message}</level>",
+        colorize=True
+        )
 
 
 if __name__ == "__main__":
@@ -180,7 +195,15 @@ if __name__ == "__main__":
         required=False,
         help="extract all files from a .ahs source file."
     )
+    parser.add_argument(
+        "-v", "--verbose",
+        action="store_true",
+        dest="verbose",
+        required=False,
+        help="enable verbose logging output."
+    )
     arguments = parser.parse_args()
+    logging(arguments.verbose)
 
     if arguments.source and arguments.source.endswith(".ahs"):
         content = open_file(arguments.source)
@@ -188,8 +211,16 @@ if __name__ == "__main__":
 
         if arguments.extract:
             destination = arguments.source
+            file_count = 0
+            total_file_size = 0
             for f in files:
-                write_file(f, destination)
+                try:
+                    write_file(f, destination)
+                    file_count += 1
+                    total_file_size += len(f.extract_content())
+                except:
+                    continue
+            logger.success(f"{total_file_size} bytes in {file_count} files extracted.")
 
     else:
         sys.exit("Please specify a .ahs file.")
