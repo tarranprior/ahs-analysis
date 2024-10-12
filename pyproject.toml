@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "ahs-analysis"
+name = "ahs-tools"
 version = "0.1.0"
 description = "Lightweight file analysis and extraction tool for HPE's Active Health System (.AHS) files."
 authors = ["Tarran Prior <Tarranprior@protonmail.com>"]

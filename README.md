@@ -1,5 +1,5 @@
 # AHS Tools
-A collection of lightweight file analysis and data extraction tool for HPE's Active Health System (`.AHS`) files.
+A collection of lightweight file analysis and data extraction tools for HPE's Active Health System (`.AHS`) files.
 
 ## Introduction
 
