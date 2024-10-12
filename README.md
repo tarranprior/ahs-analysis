@@ -1,5 +1,5 @@
-# AHS File Analysis
-A lightweight file analysis and extraction tool for HPE's Active Health System (`.AHS`) files.
+# AHS Tools
+A collection of lightweight file analysis and data extraction tool for HPE's Active Health System (`.AHS`) files.
 
 ## Introduction
 
@@ -14,12 +14,12 @@ This tool was made for educational purposes.
 ## Installation
 1. Clone the repository:
 ```bash
-git clone https://github.com/tarranprior/ahs-analysis.git
+git clone https://github.com/tarranprior/ahs-tools.git
 ```
 
 2. Change the directory:
 ```bash
-cd ahs-analysis
+cd ahs-tools
 ```
 
 3. Install the dependencies:
@@ -33,11 +33,11 @@ pip install -r requirements.txt
 
 ## Usage
 ```bash
-ahs-analysis.py [options] <source>
+ahs-tools.py [options] <source>
 
 options:
   -h, --help     show this help message and exit
-  --extract      extract all files from a .ahs source file.
+  -x, --extract  extract all files from a .ahs source file.
   -v, --verbose  enable verbose logging output.
 ```
 
