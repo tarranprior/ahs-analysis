@@ -71,3 +71,6 @@ The contents of a typical `.AHS` file includes the following files after extract
 -rwxrwx--- 1 root      823  CUST_INFO.DAT
 -rwxrwx--- 1 root    15360  file.pkg.txt
 ```
+
+## Support
+If you have any questions about this project, please submit an issue [here](https://github.com/tarranprior/ahs-tools/issues).
